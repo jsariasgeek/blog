@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, TemplateView
 from django.shortcuts import get_object_or_404
 from .models import Entry
 
@@ -17,4 +17,11 @@ class EntryDetail(DetailView):
 		entry_id = self.kwargs.get('id')
 		obj = get_object_or_404(Entry, id=entry_id)
 		return obj
+
+class AboutMe(TemplateView):
+	template_name = 'about.html'
+
+
+class Contacto(TemplateView):
+	template_name = 'contact.html'
 
